@@ -1,0 +1,12 @@
+.part9{
+    background: #333333;
+    color: #ffffff;
+    text-align: center;
+    font-size: 14px;
+    line-height: 60px;
+    height: 60px;
+}
+
+.p1{float: right}
+.p2{float: left;}
+.clear{clear: both;}

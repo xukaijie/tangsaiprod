@@ -1,0 +1,17 @@
+.dots{
+	display: inline-block;
+	width: 6px;
+	height: 6px;
+	margin-left: 8px;
+	border: 1px solid #fff;
+	border-radius: 50%;
+	cursor: pointer;
+}
+
+.dots:first-child {
+	margin-left: 0;
+}
+
+.dots:global.active {
+	background: #fff;
+}

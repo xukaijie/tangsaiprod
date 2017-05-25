@@ -1,0 +1,48 @@
+.container{
+
+    width:900px;
+    margin:0 auto;
+    font-size: 18px;
+
+}
+
+
+.contentCon{
+
+    width:100%;
+}
+
+.container h1{
+
+    text-align: center;
+}
+
+.container >h1:first-child{
+
+    padding-bottom: 20px;
+    border-bottom: 1px solid red;
+}
+
+
+
+.title2{
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+.contentList{
+
+    display: inline-block;
+
+    width:30%;
+    margin-right:30px;
+    text-align: center;
+    margin-bottom: 30px;
+
+}
+
+.contentList img{
+
+    width:200px;
+    height: 200px;
+}
