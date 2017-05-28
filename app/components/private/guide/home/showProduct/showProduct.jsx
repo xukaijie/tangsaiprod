@@ -16,22 +16,26 @@ class Home extends Component {
 
             content:[
 
-                {name:"FLASHLIGHTS",icon:require('./img/flashlight.png')},
-                {name:'HEADLIGHTS',child:[],icon:require('./img/headlight.png'),link:""},
-                {name:'LANTERNS',child:[],icon:require('./img/3.png'),link:""},
-                {name:'WORK LIGHTS',child:[],icon:require('./img/4.png'),link:""},
-                {name:'MOTION',child:[],icon:require('./img/5.png'),link:""},
-                {name:'SPOTLIGHTS',child:[],icon:require('./img/6.png'),link:""},
-                {name:'SOLAR LIGHTS',child:[],icon:require('./img/6.png'),link:""},
-                {name:'NIGHT LIGHTS',child:[],icon:require('./img/6.png'),link:""},
+                {name:"Flashlights",icon:require('./img/flashlight.png')},
+                {name:'Headlights',child:[],icon:require('./img/headlight.png'),link:""},
+                {name:'Lanterns',child:[],icon:require('./img/3.png'),link:""},
+                {name:'Spotlights',child:[],icon:require('./img/4.png'),link:""},
+                {name:'Bicycle Lights',child:[],icon:require('./img/5.png'),link:""},
+                {name:'Work Lights',child:[],icon:require('./img/6.png'),link:""},
+                {name:'Night Light',child:[],icon:require('./img/6.png'),link:""},
+                {name:'Solar Lights',child:[],icon:require('./img/6.png'),link:""},
 
             ]
         }
     }
 
+    clickOn = (root)=>{
 
+        hashHistory.push("/guide/category/"+root);
+    }
     render(){
 
+        var thiz = this;
         return (
             <div className={style.container}>
 
@@ -49,7 +53,7 @@ class Home extends Component {
                                 <div className={style.contentList}>
                                     <img src={item.icon} />
 
-                                    <p>{item.name}</p>
+                                    <p onClick={thiz.clickOn.bind(thiz,item.name)}>{item.name}</p>
 
                                 </div>
                             )

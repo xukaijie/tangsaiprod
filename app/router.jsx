@@ -14,13 +14,13 @@ const lazyLoadPage = pageName => (location, cb) => {
 
 
 const RouteConfig = (
-    <Router history={browserHistory}>
+    <Router history={hashHistory}>
         <Route path="/" component={Roots} >
 
             <Route path='guide' getComponent={lazyLoadPage('guide')} >
                 <IndexRoute getComponent={lazyLoadPage('guide/home')}/>
                 <Route path="home" getComponent={lazyLoadPage('guide/home')} />
-
+                <Route path="category/:root" getComponent={lazyLoadPage('guide/cateProduct')} />
             </Route>
         </Route>
 

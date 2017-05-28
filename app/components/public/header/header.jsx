@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Router, Route, Redirect, IndexRoute,browserHistory, Link} from 'react-router';
+import {Router, Route, Redirect, IndexRoute,browserHistory,hashHistory, Link} from 'react-router';
 
 import style from './header.css'
 
@@ -13,7 +13,7 @@ export default class Header extends Component {
 
             content:[
 
-                {name:"Home",child:[],icon:require('./img/1.png'),show:false},
+                {name:"Home",child:[],icon:require('./img/1.png'),show:false,link:"/guide/home"},
                 {name:'Aboutus',child:[],icon:require('./img/2.png'),link:""},
                 {name:'Products',child:[],icon:require('./img/3.png'),link:""},
                 {name:'Service',child:[],icon:require('./img/4.png'),link:""},
@@ -45,7 +45,7 @@ export default class Header extends Component {
 
         if (!_state.content[index].child || _state.content[index].child.length == 0){
 
-
+            hashHistory.push(_state.content[index].link)
         }
 
     }
