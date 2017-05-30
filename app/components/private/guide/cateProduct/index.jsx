@@ -189,8 +189,7 @@ class CateProduct extends Component {
 
         var currentpage = this.props.productList.currentPage;
 
-        var root = this.props.params.root.replace(" ","");
-        parent = parent.replace(" ","")
+        var root = this.props.params.root;
 
         dispatch(getproductlist(root,parent,currentpage))
 
@@ -202,7 +201,7 @@ class CateProduct extends Component {
 
         var currentpage = this.props.productList.currentPage;
 
-        var root = this.props.params.root.replace(" ","");
+        var root = this.props.params.root;
         var parent = 'ALL'
 
         dispatch(getproductlist(root,parent,currentpage))

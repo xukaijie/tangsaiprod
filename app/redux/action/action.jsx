@@ -4,13 +4,29 @@ import {HOST} from 'cmPath/config.jsx';
 
 export const getproductlist = (root,parent,currentpage,successcallback,failcallback)=> {
 
-    let url = HOST +"product_list?root="+root+"&parent="+parent+"&currentpage="+currentpage+"&pagesize=10";
+    let url = HOST +"product_list?currentpage="+currentpage+"&pagesize=10";
+
+    var body = {
+
+        root:root,
+        parent:parent
+    }
+
+    var headers = new Headers();
+    headers.append("content-type", "application/json;charset=UTF-8");
 
     return dispatch => {
 
         return fetch(url, {
-            method: 'get',
-            "Content-Type": "application/json",
+            method: 'post',
+
+            headers:headers,
+
+/*
+            "content-type": "application/json;charset=UTF-8",
+*/
+
+            body:JSON.stringify(body)
 
         })
             .then(response => {
