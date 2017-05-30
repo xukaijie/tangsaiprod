@@ -3,6 +3,9 @@ import {Router, Route, Redirect, IndexRoute,browserHistory,hashHistory, Link} fr
 
 import style from './header.css'
 
+import {getproductlist} from 'actionPath/action.jsx'
+
+
 export default class Header extends Component {
 
     constructor(props){
@@ -15,7 +18,22 @@ export default class Header extends Component {
 
                 {name:"Home",child:[],icon:require('./img/1.png'),show:false,link:"/guide/home"},
                 {name:'Aboutus',child:[],icon:require('./img/2.png'),link:""},
-                {name:'Products',child:[],icon:require('./img/3.png'),link:""},
+                {
+                    name:'Products',
+                    child:[
+                        'Flashlights',
+                        'Headlights',
+                        'Lanterns',
+                        'Spotlights',
+                        'Bicycle Lights',
+                        'Work Lights',
+                        'Night Lights',
+                        'Solar Lights',
+
+                    ],
+                    icon:require('./img/3.png'),link:""
+
+                },
                 {name:'Service',child:[],icon:require('./img/4.png'),link:""},
                 {name:'Contact us',child:[],icon:require('./img/6.png'),link:""},
 
@@ -54,8 +72,39 @@ export default class Header extends Component {
     showChild = (index)=>{
 
 
+
         return this.state.content[index].show == true?{}:{display:'none'}
 
+
+    }
+
+
+    navGator = (index,child,ind)=>{
+
+        if (this.state.content[index].name == 'Products'){
+
+
+            if (this.props.location.pathname.indexOf('guide/category') != -1 && this.props.params.root != child){
+
+                var {dispatch} = this.props;
+
+                var currentpage = 1;
+
+                var root = child;
+
+                var parent = 'ALL'
+
+                dispatch(getproductlist(root,parent,currentpage));
+
+                hashHistory.push('/guide/category/'+child)
+
+            }else{
+
+                hashHistory.push('/guide/category/'+child)
+
+            }
+
+        }
     }
     render(){
 
@@ -93,7 +142,7 @@ export default class Header extends Component {
                                                 ret = item.child.map(function(child,ind){
 
 
-                                                    return <li key={'child'+ind}>{child}</li>
+                                                    return <li key={'child'+ind} onClick={thiz.navGator.bind(thiz,index,child,ind)}>{child}</li>
                                                 })
 
                                                 return <ul style={thiz.showChild(index)} className={style.childCon}>{ret}</ul>

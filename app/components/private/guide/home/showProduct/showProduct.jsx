@@ -18,12 +18,12 @@ class Home extends Component {
 
                 {name:"Flashlights",icon:require('./img/flashlight.png')},
                 {name:'Headlights',child:[],icon:require('./img/headlight.png'),link:""},
-                {name:'Lanterns',child:[],icon:require('./img/3.png'),link:""},
-                {name:'Spotlights',child:[],icon:require('./img/4.png'),link:""},
-                {name:'Bicycle Lights',child:[],icon:require('./img/5.png'),link:""},
-                {name:'Work Lights',child:[],icon:require('./img/6.png'),link:""},
-                {name:'Night Light',child:[],icon:require('./img/6.png'),link:""},
-                {name:'Solar Lights',child:[],icon:require('./img/6.png'),link:""},
+                {name:'Lanterns',child:[],icon:require('./img/3 Lanterns.png'),link:""},
+                {name:'Spotlights',child:[],icon:require('./img/4 Spotllight.png'),link:""},
+                {name:'Bicycle Lights',child:[],icon:require('./img/5 Bicycle Lights.png'),link:""},
+                {name:'Work Lights',child:[],icon:require('./img/6 Work Lights.png'),link:""},
+                {name:'Night Lights',child:[],icon:require('./img/7 Night Lights.png'),link:""},
+                {name:'Solar Lights',child:[],icon:require('./img/8 Solar Lights.png'),link:""},
 
             ]
         }

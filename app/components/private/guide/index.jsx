@@ -18,7 +18,7 @@ class Guide extends Component {
 
         return (
             <div>
-            <Header />
+            <Header {...this.props}/>
                 <br />
 
                 {
@@ -38,4 +38,4 @@ class Guide extends Component {
 
 }
 
-module.exports = Guide;
+module.exports = connect()(Guide);

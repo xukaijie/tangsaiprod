@@ -20,28 +20,25 @@ class Nav extends Component {
 
         super(props);
 
-
-        var cateList = [];
-
-        console.log(this.props)
-
-        for (var i = 0;i < productList.length;i++){
-
-            console.log(this.props.params.root);
-            console.log(productList[i].root)
-            if (productList[i].root == this.props.params.root){
-
-                cateList = productList[i].parent;
-                break;
-            }
-        }
         this.state = {
 
-            cateList:cateList,
-            curentIndex:-1
+            currentIndex:0,
+            root:this.props.root
+
         }
 
-        console.log(this.state)
+    }
+
+    componentWillReceiveProps(nextProps){
+
+        if (this.props.root != nextProps.root){
+
+            this.setState({
+
+                root:nextProps.root,
+                currentIndex:0
+            })
+        }
 
     }
 
@@ -55,14 +52,14 @@ class Nav extends Component {
 
         this.setState({
 
-            curentIndex:index
+            currentIndex:index
         })
     }
 
 
     getCurrent = (index)=>{
 
-        return index == this.state.curentIndex?{color:'#82ff30'}:{}
+        return index == this.state.currentIndex?{color:'#82ff30'}:{}
     }
     render(){
 
@@ -72,12 +69,12 @@ class Nav extends Component {
 
             <div className={style.navLeft}>
 
-                <p>{this.props.params.root}</p>
+                <p>{this.props.root}</p>
 
                 <ul>
                     {
 
-                        this.state.cateList.map(function(item,index){
+                        this.props.cateList.map(function(item,index){
 
                             return <li key={'item'+index} style={thiz.getCurrent(index)}
                                        onClick={thiz.selectParent.bind(thiz,item,index)}>{item}</li>
@@ -102,11 +99,9 @@ class ProductItem extends Component{
 
     }
 
-
     render(){
 
         return (
-
 
             <div className={style.prodRight}>
 
@@ -136,10 +131,56 @@ class CateProduct extends Component {
 
     constructor(props){
 
-        super(props)
+        super(props);
+
+        var cateList = ['All'];
+
+        for (var i = 0;i < productList.length;i++) {
+
+
+            if (productList[i].root == this.props.params.root) {
+
+                cateList = cateList.concat(productList[i].parent);
+                break;
+            }
+        }
+
+        this.state = {
+
+            root:this.props.params.root,
+            cateList:cateList
+        }
     }
 
 
+
+    componentWillReceiveProps(nextProps){
+
+
+        if (this.props.location.pathname.indexOf('/guide/category') != -1 && this.props.params.root != this.state.root){
+
+            var cateList = ['All'];
+
+            for (var i = 0;i < productList.length;i++) {
+
+
+                if (productList[i].root == this.props.params.root) {
+
+                    cateList = cateList.concat(productList[i].parent);
+                    break;
+                }
+            }
+
+            var _state = {
+
+                root:this.props.params.root,
+                cateList:cateList
+            }
+
+            this.setState(_state);
+
+        }
+    }
 
     handle = (parent)=>{
 
@@ -155,29 +196,32 @@ class CateProduct extends Component {
 
     }
 
+    componentDidMount(){
+
+        var {dispatch} = this.props;
+
+        var currentpage = this.props.productList.currentPage;
+
+        var root = this.props.params.root.replace(" ","");
+        var parent = 'ALL'
+
+        dispatch(getproductlist(root,parent,currentpage))
+    }
+
     render(){
 
         return (
             <div className={style.container}>
 
-                <Swiper opts={[{
-                    link:"",
-                    src: banner1
-                },{
-                    link:"",
-                    src: banner2
-                },{
-
-                    link:"",
-                    src: banner3
-
-                }]}  baseWidth ={1200} baseHeight = {400} />
+               <div>
+                   <img src={require('./img/banner1.png')} className={style.catImg}/>
+               </div>
 
                 <br />
 
                 <br />
 
-                <Nav handle={this.handle} {...this.props}/>
+                <Nav handle={this.handle} {...this.props} {...this.state}/>
 
                 <ProductItem {...this.props} />
 
