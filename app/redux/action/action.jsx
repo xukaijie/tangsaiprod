@@ -20,7 +20,7 @@ export const getproductlist = (root,parent,currentpage,successcallback,failcallb
         return fetch(url, {
             method: 'post',
 
-            headers:headers,
+            /*headers:headers,*/
 
 /*
             "content-type": "application/json;charset=UTF-8",
