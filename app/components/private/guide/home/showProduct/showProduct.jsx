@@ -18,12 +18,12 @@ class Home extends Component {
 
                 {name:"Flashlights",icon:require('./img/flashlight.png')},
                 {name:'Headlights',child:[],icon:require('./img/headlight.png'),link:""},
-                {name:'Lanterns',child:[],icon:require('./img/3 Lanterns.png'),link:""},
-                {name:'Spotlights',child:[],icon:require('./img/4 Spotllight.png'),link:""},
-                {name:'Bicycle Lights',child:[],icon:require('./img/5 Bicycle Lights.png'),link:""},
-                {name:'Work Lights',child:[],icon:require('./img/6 Work Lights.png'),link:""},
-                {name:'Night Lights',child:[],icon:require('./img/7 Night Lights.png'),link:""},
-                {name:'Solar Lights',child:[],icon:require('./img/8 Solar Lights.png'),link:""},
+                {name:'Lanterns',child:[],icon:require('./img/Lanterns.png'),link:""},
+                {name:'Spotlights',child:[],icon:require('./img/Spotllight.png'),link:""},
+                {name:'Bicycle Lights',child:[],icon:require('./img/Bicycle_Lights.png'),link:""},
+                {name:'Work Lights',child:[],icon:require('./img/Work_Lights.png'),link:""},
+                {name:'Night Lights',child:[],icon:require('./img/Night_Lights.png'),link:""},
+                {name:'Solar Lights',child:[],icon:require('./img/Solar_Lights.png'),link:""},
 
             ]
         }
@@ -31,7 +31,7 @@ class Home extends Component {
 
     clickOn = (root)=>{
 
-        hashHistory.push("/guide/category/"+root);
+        hashHistory.push("/category/"+root);
     }
     render(){
 

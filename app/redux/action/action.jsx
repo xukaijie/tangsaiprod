@@ -4,7 +4,7 @@ import {HOST} from 'cmPath/config.jsx';
 
 export const getproductlist = (root,parent,currentpage,successcallback,failcallback)=> {
 
-    let url = HOST +"product_list?currentpage="+currentpage+"&pagesize=10";
+    let url = HOST +"product_list?currentpage="+currentpage+"&pagesize=9";
 
     var body = {
 
@@ -33,7 +33,7 @@ export const getproductlist = (root,parent,currentpage,successcallback,failcallb
                 if (response.ok) {
                     response.json().then(json => {
                         if (json.err == 0) {
-                            dispatch({type: GETPRODUCTLIST,data:json.data});
+                            dispatch({type: GETPRODUCTLIST,data:json});
                             if (successcallback)
                                 successcallback()
                         }else if (failcallback){

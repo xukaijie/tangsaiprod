@@ -4,6 +4,7 @@ import {connect} from 'react-redux';
 
 import style from './cateProduct.css';
 import Swiper from 'pubComp/banner/Slide/index.jsx';
+import Pagination from 'pubComp/pagination/pagination.jsx'
 
 import banner1 from './img/banner1.png';
 import banner2 from './img/banner2.png';
@@ -102,13 +103,25 @@ class ProductItem extends Component{
 
     getDetail = (name,e)=>{
 
-        hashHistory.push('/guide/prodDetail/'+this.props.params.root+"/"+name);
+        hashHistory.push('/prodDetail/'+this.props.params.root+"/"+name);
+
+    }
+
+
+    pagecallback = (page)=>{
+
+        this.props.handle(page)
 
     }
 
     render(){
 
         var thiz = this;
+
+        var currentpage = this.props.productList.currentPage;
+
+        var maxPage = this.props.productList.maxPage;
+
         return (
 
             <div className={style.prodRight}>
@@ -128,6 +141,11 @@ class ProductItem extends Component{
 
                 }
 
+                <div style={{marginTop:"30px",marginBottom:"10px",textAlign:"right"}}>
+
+                    <Pagination nCurrentPage={currentpage} nMaxPage={maxPage} fPageHandle={this.pagecallback}/>
+                </div>
+
 
             </div>
         )
@@ -140,6 +158,8 @@ class CateProduct extends Component {
     constructor(props){
 
         super(props);
+
+        console.log("cate")
 
         var cateList = ['All'];
 
@@ -156,7 +176,8 @@ class CateProduct extends Component {
         this.state = {
 
             root:this.props.params.root,
-            cateList:cateList
+            cateList:cateList,
+            parent:'All'
         }
     }
 
@@ -165,7 +186,7 @@ class CateProduct extends Component {
     componentWillReceiveProps(nextProps){
 
 
-        if (this.props.location.pathname.indexOf('/guide/category') != -1 && this.props.params.root != this.state.root){
+        if (this.props.location.pathname.indexOf('/category') != -1 && this.props.params.root != this.state.root){
 
             var cateList = ['All'];
 
@@ -190,30 +211,47 @@ class CateProduct extends Component {
         }
     }
 
+    componentDidMount(){
+
+        var {dispatch} = this.props;
+
+        var currentpage = 1;
+
+        var root = this.props.params.root;
+        var parent = this.state.parent
+
+        dispatch(getproductlist(root,parent,currentpage))
+    }
+
     handle = (parent)=>{
 
         console.log(this.props)
         var {dispatch} = this.props;
 
-        var currentpage = this.props.productList.currentPage;
+        var currentpage = 1;
 
         var root = this.props.params.root;
 
-        dispatch(getproductlist(root,parent,currentpage))
+        dispatch(getproductlist(root,parent,currentpage));
+
+        this.setState({
+
+            parent:parent
+        })
 
     }
 
-    componentDidMount(){
+
+    pageCallback = (page)=>{
+
 
         var {dispatch} = this.props;
 
-        var currentpage = this.props.productList.currentPage;
-
         var root = this.props.params.root;
-        var parent = 'ALL'
 
-        dispatch(getproductlist(root,parent,currentpage))
+        dispatch(getproductlist(root,this.state.parent,page));
     }
+
 
     render(){
 
@@ -230,7 +268,7 @@ class CateProduct extends Component {
 
                 <Nav handle={this.handle} {...this.props} {...this.state}/>
 
-                <ProductItem {...this.props} />
+                <ProductItem {...this.props} handle={this.pageCallback}/>
 
             </div>
 

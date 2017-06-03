@@ -15,8 +15,7 @@ export default function productList(state= initialstate, action) {
 
 		case GETPRODUCTLIST:
 
-			console.log(action)
-			var data = action.data;
+			var data = action.data.data;
 			var list = [];
 
 			for (var i = 0;i < data.length;i++){
@@ -28,12 +27,12 @@ export default function productList(state= initialstate, action) {
 				})
 			}
 
-			console.log(list)
-
 			return {
 
 				...state,
-                list:list
+                list:list,
+				currentPage:action.data.currentpage,
+				maxPage:action.data.pagenum
 			}
 
 

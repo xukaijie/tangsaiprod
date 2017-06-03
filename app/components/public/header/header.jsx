@@ -16,7 +16,7 @@ export default class Header extends Component {
 
             content:[
 
-                {name:"Home",child:[],icon:require('./img/1.png'),show:false,link:"/guide/home"},
+                {name:"Home",child:[],icon:require('./img/1.png'),show:false,link:"/home"},
                 {name:'Aboutus',child:[],icon:require('./img/2.png'),link:""},
                 {
                     name:'Products',
@@ -84,7 +84,7 @@ export default class Header extends Component {
         if (this.state.content[index].name == 'Products'){
 
 
-            if (this.props.location.pathname.indexOf('guide/category') != -1 && this.props.params.root != child){
+            if (this.props.location.pathname.indexOf('/category') != -1 && this.props.params.root != child){
 
                 var {dispatch} = this.props;
 
@@ -96,11 +96,11 @@ export default class Header extends Component {
 
                 dispatch(getproductlist(root,parent,currentpage));
 
-                hashHistory.push('/guide/category/'+child)
+                hashHistory.push('/category/'+child)
 
             }else{
 
-                hashHistory.push('/guide/category/'+child)
+                hashHistory.push('/category/'+child)
 
             }
 
