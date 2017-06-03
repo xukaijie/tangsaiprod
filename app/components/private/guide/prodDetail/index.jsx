@@ -15,7 +15,8 @@ class ProdDetail extends Component {
         this.state={
 
             descp:"",
-            feature:[]
+            feature:[],
+            img:"",
         }
     }
 
@@ -31,7 +32,8 @@ class ProdDetail extends Component {
             this.setState({
 
                 descp:data.data.descp,
-                feature:data.data.feature
+                feature:data.data.feature,
+                img:data.data.img
             })
         })
 
@@ -45,7 +47,7 @@ class ProdDetail extends Component {
 
                 <div className={style.sideleft}>
 
-
+                    <img src={this.state.img} className={style.imgcl}/>
 
                 </div>
 

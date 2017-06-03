@@ -106,7 +106,8 @@ input, textarea, keygen, select, button {
     outline: none;
 }
 
-/*底部位于最底下*/
+/*
+!*底部位于最底下*!
 html,body,#init{
     height: 100%;
 }
@@ -126,4 +127,4 @@ html,body,#init{
 }
 #init>div>div :last-child{
     flex: 0 0 auto;
-}
+}*/
