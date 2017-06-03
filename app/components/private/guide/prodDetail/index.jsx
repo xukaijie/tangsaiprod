@@ -4,16 +4,36 @@ import {connect} from 'react-redux';
 
 import style from './prodDetail.css'
 
+import {getProductDetail} from 'actionPath/action.jsx'
+
 class ProdDetail extends Component {
 
     constructor(props){
 
-        super(props)
+        super(props);
+
+        this.state={
+
+            descp:"",
+            feature:[]
+        }
     }
 
 
     componentDidMount(){
 
+        var root = this.props.params.root;
+
+        var name = this.props.params.product;
+        getProductDetail(root,name,(data)=>{
+
+
+            this.setState({
+
+                descp:data.data.descp,
+                feature:data.data.feature
+            })
+        })
 
 
     }
@@ -38,23 +58,20 @@ class ProdDetail extends Component {
 
                     <div className={style.description}>
 
-                        i am here icnsdkjcvndsvcndcvhdkvhdnkjvdflvndfkv jndjkbncjk nhj
-                        cdsvdnfkvdfnlvkdfnv
-                        dcvndfkjvndf
-                        dkvldfnlvkdf
-                        dfvkdfnblv df
-                        dcvknjdfjnvldvnkjdvndflvkn
-                        vdnfkjvndfkjnv
-                        dfnkjjvndflkvn
-                        dclnvdflkv new
+                        {this.state.descp}
                     </div>
 
 
                     <h1 className={style.feature}>PRODUCT FEATURES</h1>
 
-                    <p>· sdcknsdkvndkv jdfnkjv dfnkjv</p>
-                    <p>· sdcvdfv dfvdfvdfvdfvdf</p>
-                    <p>· csdvcdfvdfvdfjvlkdfnvdfjknvkdf</p>
+                    {
+
+                        this.state.feature.map(function(ft,index){
+
+                            return <p>· {ft}</p>
+                        })
+                    }
+
 
                 </div>
 

@@ -57,29 +57,36 @@ export const getproductlist = (root,parent,currentpage,successcallback,failcallb
 export const getProductDetail = (root,prod,successcallback,failcallback)=>{
 
 
-    let url = HOST +"product_detail?root="+root+"&prod="+prod;
+    let url = HOST +"product_detail";
+
+
+    var body = {
+
+        root:root,
+        name:prod
+    }
 
 
     return fetch(url, {
-        method: 'get'
-
+        method: 'post',
+        body:JSON.stringify(body)
     })
         .then(response => {
             if (response.ok) {
                 response.json().then(json => {
                     if (json.err == 0) {
                         if (successcallback)
-                            successcallback()
+                            successcallback(json)
                     }else if (failcallback){
 
-                        failcallback()
+                        failcallback(json)
                     }
                 })
             } else {
                 console.log("status", response.status);
                 if (failcallback){
 
-                    failcallback()
+                    failcallback(json)
                 }
             }
         })
