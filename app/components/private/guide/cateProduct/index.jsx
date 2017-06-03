@@ -99,8 +99,16 @@ class ProductItem extends Component{
 
     }
 
+
+    getDetail = (name,e)=>{
+
+        hashHistory.push('/guide/prodDetail/'+this.props.params.root+"/"+name);
+
+    }
+
     render(){
 
+        var thiz = this;
         return (
 
             <div className={style.prodRight}>
@@ -113,7 +121,7 @@ class ProductItem extends Component{
 
                             <img src={list.img} className={style.imgcon}/>
 
-                            <p>{list.name}</p>
+                            <p className={style.nameCl} onClick={thiz.getDetail.bind(thiz,list.name)}>{list.name}</p>
                         </div>
                     })
 

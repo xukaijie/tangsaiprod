@@ -52,3 +52,38 @@ export const getproductlist = (root,parent,currentpage,successcallback,failcallb
             .catch(error => console.log(error))
     };
 }
+
+
+export const getProductDetail = (root,prod,successcallback,failcallback)=>{
+
+
+    let url = HOST +"product_detail?root="+root+"&prod="+prod;
+
+
+    return fetch(url, {
+        method: 'get'
+
+    })
+        .then(response => {
+            if (response.ok) {
+                response.json().then(json => {
+                    if (json.err == 0) {
+                        if (successcallback)
+                            successcallback()
+                    }else if (failcallback){
+
+                        failcallback()
+                    }
+                })
+            } else {
+                console.log("status", response.status);
+                if (failcallback){
+
+                    failcallback()
+                }
+            }
+        })
+        .catch(error => console.log(error))
+
+
+}

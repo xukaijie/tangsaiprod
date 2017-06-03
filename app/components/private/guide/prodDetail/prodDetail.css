@@ -1,0 +1,48 @@
+
+.container{
+
+    width:900px;
+    margin:0 auto;
+    font-size: 14px;
+    color: #333333;
+}
+.sideleft{
+
+    display: inline-block;
+    width:400px;
+    border: 1px solid #cccccc;
+    height: 400px;
+    vertical-align: top;
+    margin-right: 20px;
+}
+
+.sideright{
+
+    display: inline-block;
+    width:400px;
+}
+
+.title{
+
+    font-weight: 900;
+    margin-bottom: 20px;
+    font-size: 30px;
+}
+
+
+.description{
+
+    word-break: break-all;
+    text-indent: 20px;
+    margin-top:30px;
+    width:100%;
+}
+
+
+.feature{
+
+    margin-top:30px;
+    font-weight: 900;
+    margin-bottom: 10px;
+    font-size: 14px;
+}
