@@ -28,14 +28,6 @@ class Home extends Component {
                 <Swiper opts={[{
                     link:"",
                     src: banner1
-                },{
-                    link:"",
-                    src: banner2
-                },{
-
-                    link:"",
-                    src: banner3
-
                 }]}  baseWidth ={1200} baseHeight = {400} />
 
                 <br />

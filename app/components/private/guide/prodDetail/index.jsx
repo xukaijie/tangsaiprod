@@ -56,7 +56,6 @@ class ProdDetail extends Component {
 
                     <h1 className={style.title}>{this.props.params.product}</h1>
 
-                    <p>be the first to review the product:</p>
 
                     <div className={style.description}>
 

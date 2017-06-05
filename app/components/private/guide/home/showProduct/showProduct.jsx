@@ -39,7 +39,7 @@ class Home extends Component {
         return (
             <div className={style.container}>
 
-                <h1>Shop By Product</h1>
+                <h1 className={style.title}>Products</h1>
                 <h1 className={style.title2}>Discover what product you need</h1>
 
                 <div className={style.contentCon}>

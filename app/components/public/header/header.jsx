@@ -17,7 +17,7 @@ export default class Header extends Component {
             content:[
 
                 {name:"Home",child:[],icon:require('./img/1.png'),show:false,link:"/home"},
-                {name:'Aboutus',child:[],icon:require('./img/2.png'),link:""},
+                {name:'About Us',child:[],icon:require('./img/2.png'),link:""},
                 {
                     name:'Products',
                     child:[
@@ -38,7 +38,8 @@ export default class Header extends Component {
                 {name:'Contact us',child:[],icon:require('./img/6.png'),link:""},
 
 
-            ]
+            ],
+            current:0
 
         }
     }
@@ -61,9 +62,13 @@ export default class Header extends Component {
 
         var _state = {...this.state};
 
-        if (!_state.content[index].child || _state.content[index].child.length == 0){
+        if (!_state.content[index].child || _state.content[index].child.length == 0&&_state.content[index].link){
 
-            hashHistory.push(_state.content[index].link)
+            this.setState({
+                current:index
+            })
+            hashHistory.push(_state.content[index].link);
+
         }
 
     }
@@ -78,8 +83,14 @@ export default class Header extends Component {
 
     }
 
+    getFirstCurrent = (index)=>{
+
+        return index == this.state.current?{borderBottom:"1px solid #000000"}:{}
+    }
+
 
     navGator = (index,child,ind)=>{
+
 
         if (this.state.content[index].name == 'Products'){
 
@@ -105,6 +116,11 @@ export default class Header extends Component {
             }
 
         }
+
+
+        this.setState({
+            current:index
+        })
     }
     render(){
 
@@ -128,8 +144,8 @@ export default class Header extends Component {
                                 <div className={style.navItem} onMouseLeave={thiz.setChild.bind(thiz,index,false)} key={'item'+index}>
 
                                     {/*<img src={item.icon}/>*/}
-                                    <p onMouseEnter={thiz.setChild.bind(thiz,index,true)} onClick={thiz.onClick.bind(thiz,index)}
-                                    >{item.name}</p>
+                                    <p onMouseEnter={thiz.setChild.bind(thiz,index,true)} style={thiz.getFirstCurrent(index)}
+                                       onClick={thiz.onClick.bind(thiz,index)}>{item.name}</p>
 
                                     {
 

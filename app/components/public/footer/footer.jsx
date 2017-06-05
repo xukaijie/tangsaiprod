@@ -36,8 +36,9 @@ export default class footer extends React.Component {
         return (
             <div className={style.part9}>
                 <div className="inner">
-                    <p className={style.p1}>Copyright©2016 www.xxx.com 浙ICP备16023665号-3</p>
-                    <p className={style.p2}>宁波唐赛国际贸易有限公司  |  联系地址：浙江省宁波市宁海县  |  联系电话：0571-88647556</p>
+
+                    <p >Company name:Ningbo Tangsai International Trade Co.,Ltd  |  Email：sales_ts@vip.126.com</p>
+                    <p >Address: Room 1002.Ninghai Mansion.No.11 Renmin Road.Ninghai.Ningbo.China | Telephone:+86-0574-67051823</p>
                     <div className={style.clear}></div>
                 </div>
             </div>
