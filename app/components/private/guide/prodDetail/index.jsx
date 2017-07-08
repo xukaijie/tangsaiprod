@@ -16,6 +16,7 @@ class ProdDetail extends Component {
 
             descp:"",
             feature:[],
+            special:[],
             img:"",
         }
     }
@@ -32,8 +33,9 @@ class ProdDetail extends Component {
             this.setState({
 
                 descp:data.data.descp,
-                feature:data.data.feature,
-                img:data.data.img
+                feature:data.data.feature || [],
+                img:data.data.img,
+                special:data.data.special || []
             })
         })
 
@@ -68,6 +70,16 @@ class ProdDetail extends Component {
                     {
 
                         this.state.feature.map(function(ft,index){
+
+                            return <p>· {ft}</p>
+                        })
+                    }
+
+                    <h1 className={style.feature}>Specifications</h1>
+
+                    {
+
+                        this.state.special.map(function(ft,index){
 
                             return <p>· {ft}</p>
                         })
