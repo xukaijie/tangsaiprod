@@ -18,6 +18,8 @@ class ProdDetail extends Component {
             feature:[],
             special:[],
             img:"",
+            img_bak:"",
+            sub_img:[]
         }
     }
 
@@ -35,21 +37,53 @@ class ProdDetail extends Component {
                 descp:data.data.descp,
                 feature:data.data.feature || [],
                 img:data.data.img,
-                special:data.data.special || []
+                img_bak:data.data.img,
+                special:data.data.special || [],
+                sub_img:data.data.sub_img_list
             })
         })
 
 
     }
 
+    setSubImg(src){
+
+        this.setState({
+            img:src
+
+        })
+    }
+
+
+    leaveImg(){
+
+        this.setState({
+            img:this.state.img_bak
+
+        })
+    }
+
     render(){
 
+        var thiz = this;
         return (
             <div className={style.container}>
 
                 <div className={style.sideleft}>
 
                     <img src={this.state.img} className={style.imgcl}/>
+
+                    <div>
+
+                        {
+                            this.state.sub_img.map(function(item,index){
+
+                                return <img src = {item} className={style.sub_img} onMouseLeave={thiz.leaveImg.bind(thiz)}
+                                            onMouseEnter={thiz.setSubImg.bind(thiz,item)}/>
+                            })
+
+                        }
+                    </div>
 
                 </div>
 
