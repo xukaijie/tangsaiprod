@@ -17,7 +17,7 @@ export default class Header extends Component {
             content:[
 
                 {name:"Home",child:[],icon:require('./img/1.png'),show:false,link:"/home"},
-                {name:'About Us',child:[],icon:require('./img/2.png'),link:""},
+                {name:'About Us',child:[],icon:require('./img/2.png'),link:"/aboutus"},
                 {
                     name:'Products',
                     child:[
