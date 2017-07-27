@@ -91,7 +91,7 @@ class ProdDetail extends Component {
 
                 <div className={style.sideright}>
 
-                    <h1 className={style.title}>{this.props.params.product}</h1>
+                    <h1 className={style.title}>{this.props.location.query.name}</h1>
 
 
                     <div className={style.description}>
