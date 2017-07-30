@@ -103,7 +103,14 @@ class ProductItem extends Component{
 
     getDetail = (name,e)=>{
 
-        hashHistory.push('/prodDetail/'+this.props.params.root+"/"+name);
+        hashHistory.push(
+            {
+                pathname:'/prodDetail',
+                query:{
+                    root:this.props.params.root,
+                    name:name
+                }
+            });
 
     }
 

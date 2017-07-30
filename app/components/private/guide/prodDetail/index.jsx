@@ -26,9 +26,10 @@ class ProdDetail extends Component {
 
     componentDidMount(){
 
-        var root = this.props.params.root;
+        var root = this.props.location.query.root;
 
-        var name = this.props.params.product;
+        var name = this.props.location.query.name;
+
         getProductDetail(root,name,(data)=>{
 
 
@@ -90,7 +91,7 @@ class ProdDetail extends Component {
 
                 <div className={style.sideright}>
 
-                    <h1 className={style.title}>{this.props.params.product}</h1>
+                    <h1 className={style.title}>{this.props.location.query.name}</h1>
 
 
                     <div className={style.description}>
