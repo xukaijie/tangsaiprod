@@ -19,7 +19,6 @@ class Guide extends Component {
         return (
             <div>
             <Header {...this.props}/>
-                <br />
 
                 {
                     this.props.children

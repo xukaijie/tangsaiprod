@@ -18,6 +18,7 @@ export default class Header extends Component {
 
                 {name:"Home",child:[],icon:require('./img/1.png'),show:false,link:"/home"},
                 {name:'About Us',child:[],icon:require('./img/2.png'),link:"/aboutus"},
+
                 {
                     name:'Products',
                     child:[
@@ -34,6 +35,9 @@ export default class Header extends Component {
                     icon:require('./img/3.png'),link:""
 
                 },
+
+                {name:'News',child:[],icon:require('./img/2.png'),link:"/news"},
+
                 {name:'Service',child:[],icon:require('./img/4.png'),link:""},
                 {name:'Contact us',child:[],icon:require('./img/6.png'),link:""},
 

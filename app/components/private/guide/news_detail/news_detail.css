@@ -1,0 +1,39 @@
+.container{
+
+    padding:0px 100px 500px 100px;
+    clear: both;
+}
+
+.title{
+
+    text-align: center;
+    height:100px;
+    border-bottom: 1px solid #cccccc;
+    margin-top: 30px;
+}
+
+
+
+.title h1{
+
+    color: #3333;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.title span{
+
+    font-size: 14px;
+    color: #333;
+}
+
+.content{
+
+    margin-top: 30px;
+}
+
+.content p{
+
+    font-size: 16px;
+    line-height: 30px;
+}

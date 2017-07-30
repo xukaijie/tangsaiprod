@@ -21,6 +21,8 @@ const RouteConfig = (
                 <Route path="category/:root" getComponent={lazyLoadPage('guide/cateProduct')} />
                 <Route path='prodDetail' getComponent={lazyLoadPage('guide/prodDetail')} />
                 <Route path="aboutus" getComponent={lazyLoadPage('guide/aboutus')}/>
+                <Route path="news" getComponent={lazyLoadPage('guide/news')}/>
+                <Route path="news_detail/:index" getComponent={lazyLoadPage('guide/news_detail')}/>
         </Route>
 
     </Router>
