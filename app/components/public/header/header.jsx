@@ -38,7 +38,6 @@ export default class Header extends Component {
 
                 {name:'News',child:[],icon:require('./img/2.png'),link:"/news"},
 
-                {name:'Service',child:[],icon:require('./img/4.png'),link:""},
                 {name:'Contact us',child:[],icon:require('./img/6.png'),link:""},
 
 

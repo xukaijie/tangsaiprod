@@ -71,7 +71,9 @@ export const news_list = [{
     content:['Hongkong Electronics Fair 2017(Autumn)',
             'Date:13-16th of OCT',
             'Booth No. :3F-F20',
-            "Name of exhibition hall:Hongkong Convention and Exhibition Centre ADD:1 Expo Drive,Wan Chai,Hongkong(Harbour Road Entrance) Products Range: Headlamp,Work light, Flashlight,Solar light etc...."],
+            "Name of exhibition hall:Hongkong Convention and Exhibition Centre ADD:1 Expo Drive,Wan Chai,Hongkong(Harbour Road Entrance)" ,
+            "Products Range: Headlamp,Work light, Flashlight,Solar light etc...."
+        ],
 
 
 }]
