@@ -33,7 +33,7 @@ export const getproductlist = (root,parent,currentpage,successcallback,failcallb
                 if (response.ok) {
                     response.json().then(json => {
                         if (json.err == 0) {
-                            dispatch({type: GETPRODUCTLIST,data:json});
+                            dispatch({type: GETPRODUCTLIST,data:json,parent:parent,root:root});
                             if (successcallback)
                                 successcallback()
                         }else if (failcallback){

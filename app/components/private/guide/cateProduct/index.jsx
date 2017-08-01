@@ -23,7 +23,6 @@ class Nav extends Component {
 
         this.state = {
 
-            currentIndex:0,
             root:this.props.root
 
         }
@@ -37,7 +36,6 @@ class Nav extends Component {
             this.setState({
 
                 root:nextProps.root,
-                currentIndex:0
             })
         }
 
@@ -58,9 +56,9 @@ class Nav extends Component {
     }
 
 
-    getCurrent = (index)=>{
+    getCurrent = (item)=>{
 
-        return index == this.state.currentIndex?{color:'#82ff30'}:{}
+        return item == this.props.parent?{color:'#82ff30'}:{}
     }
     render(){
 
@@ -77,7 +75,7 @@ class Nav extends Component {
 
                         this.props.cateList.map(function(item,index){
 
-                            return <li key={'item'+index} style={thiz.getCurrent(index)}
+                            return <li key={'item'+index} style={thiz.getCurrent(item)}
                                        onClick={thiz.selectParent.bind(thiz,item,index)}>{item}</li>
                         })
                     }
@@ -184,7 +182,7 @@ class CateProduct extends Component {
 
             root:this.props.params.root,
             cateList:cateList,
-            parent:'All'
+            parent:this.props.params.root == this.props.productList.root?this.props.productList.parent:"All"
         }
     }
 
@@ -210,7 +208,8 @@ class CateProduct extends Component {
             var _state = {
 
                 root:this.props.params.root,
-                cateList:cateList
+                cateList:cateList,
+                parent:"All"
             }
 
             this.setState(_state);
@@ -225,19 +224,25 @@ class CateProduct extends Component {
         var currentpage = 1;
 
         var root = this.props.params.root;
-        var parent = this.state.parent
+        var parent = this.state.parent;
+
+        if (root == this.props.productList.root){
+
+            currentpage = this.props.productList.currentPage;
+
+        }
 
         dispatch(getproductlist(root,parent,currentpage))
     }
 
     handle = (parent)=>{
 
-        console.log(this.props)
         var {dispatch} = this.props;
 
         var currentpage = 1;
 
         var root = this.props.params.root;
+
 
         dispatch(getproductlist(root,parent,currentpage));
 

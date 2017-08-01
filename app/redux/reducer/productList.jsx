@@ -5,8 +5,10 @@ import {PAGESIZE} from 'cmPath/config.jsx';
 const initialstate={
 
 	list:[],
+	root:'Flashlights',
+	parent:"All",
 	currentPage:1,
-	maxPage:4
+	maxPage:1
 }
 
 export default function productList(state= initialstate, action) {
@@ -32,7 +34,9 @@ export default function productList(state= initialstate, action) {
 				...state,
                 list:list,
 				currentPage:action.data.currentpage,
-				maxPage:action.data.pagenum
+				maxPage:action.data.pagenum,
+                parent:action.parent,
+				root:action.root
 			}
 
 
