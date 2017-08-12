@@ -101,6 +101,7 @@ class ProductItem extends Component{
 
     getDetail = (name,e)=>{
 
+        e.stopPropagation();
         hashHistory.push(
             {
                 pathname:'/prodDetail',
@@ -135,11 +136,11 @@ class ProductItem extends Component{
                     this.props.productList.list.map(function(list,index){
 
 
-                        return <div className={style.prodcon}>
+                        return <div className={style.prodcon} onClick={thiz.getDetail.bind(thiz,list.name)}>
 
                             <img src={list.img} className={style.imgcon}/>
 
-                            <p className={style.nameCl} onClick={thiz.getDetail.bind(thiz,list.name)}>{list.name}</p>
+                            <p className={style.nameCl}>{list.name}</p>
                         </div>
                     })
 

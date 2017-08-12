@@ -60,6 +60,11 @@
     margin-bottom: 10px;
 }
 
+.prodcon:hover{
+
+    cursor: pointer;
+}
+
 .prodcon p{
 
     text-align: center;

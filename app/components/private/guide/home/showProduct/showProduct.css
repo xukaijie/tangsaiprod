@@ -46,6 +46,11 @@
 
 }
 
+.contentList:hover{
+
+    cursor: pointer;
+}
+
 .contentList img{
 
     width:200px;

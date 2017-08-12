@@ -29,8 +29,9 @@ class Home extends Component {
         }
     }
 
-    clickOn = (root)=>{
+    clickOn = (root,event)=>{
 
+        event.stopPropagation();
         hashHistory.push("/category/"+root);
     }
     render(){
@@ -50,10 +51,10 @@ class Home extends Component {
 
                             return (
 
-                                <div className={style.contentList}>
+                                <div className={style.contentList} onClick={thiz.clickOn.bind(thiz,item.name)}>
                                     <img src={item.icon} />
 
-                                    <p onClick={thiz.clickOn.bind(thiz,item.name)}>{item.name}</p>
+                                    <p>{item.name}</p>
 
                                 </div>
                             )
