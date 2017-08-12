@@ -16,7 +16,25 @@ class Home extends Component {
 
     constructor(props){
 
-        super(props)
+        super(props);
+
+        this.state = {
+
+            skype:[
+
+                {
+                    href:"skype:eric12312324?chat",
+                    name:"Eric"
+
+                },
+                {
+                    href:"skype:15372666442?chat",
+                    name:"Jolin"
+
+                },
+
+            ]
+        }
     }
 
 
@@ -35,6 +53,30 @@ class Home extends Component {
                 <br />
 
                 <ShowProduct/>
+
+                <div className={style.skype_div}>
+
+                    <div className={style.skype_div_con}>
+                    {
+
+                        this.state.skype.map(function(item,index){
+
+
+                            return (
+
+                                <div className={style.skype_item}>
+                                    <a href={item.href}>
+
+                                        <img src={require('./img/skype.png')} className={style.skype_logo}/>
+                                        <p>{item.name}</p>
+                                    </a>
+                                </div>
+                            )
+                        })
+                    }
+                    </div>
+
+                </div>
 
             </div>
 
