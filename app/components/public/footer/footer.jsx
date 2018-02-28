@@ -37,7 +37,7 @@ export default class footer extends React.Component {
             <div className={style.part9}>
                 <div className="inner">
 
-                    <p >Company name:Ningbo Tangsai International Trade Co.,Ltd  |  Email：sales_ts@vip.126.com</p>
+                    <p >Company name: Ningbo TS Lighting Import and Export Co.,Ltd  |  Email：ericxu@tslighting.cn</p>
                     <p >Address: Room 1002.Ninghai Mansion.No.11 Renmin Road.Ninghai.Ningbo.China | Telephone:0086-574-67051823</p>
                     <div className={style.clear}></div>
                 </div>
