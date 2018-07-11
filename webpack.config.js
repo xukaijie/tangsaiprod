@@ -20,7 +20,7 @@ module.exports = {
         publicPath:"/dist/",
         hot:true,
         historyApiFallback:true,
-        port:9000,
+        port:9008,
     },
     module: {
         loaders: [
